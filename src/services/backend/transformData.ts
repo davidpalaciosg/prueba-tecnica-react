@@ -1,7 +1,7 @@
 import { SingleTramo, SingleCliente } from "./backendResponses";
 
 //Transform a JSON tramo response into a SingleTramo object
-export const transformTramo = (tramoData:any) => {
+const transformTramo = (tramoData: any) => {
     const tramo: SingleTramo = {
         Linea: tramoData.Linea,
         consumo: tramoData.consumo,
@@ -12,7 +12,8 @@ export const transformTramo = (tramoData:any) => {
 }
 
 //Transform a JSON cliente response into a SingleCliente object
-export const transformCliente = (clienteData:any) => {
+const transformCliente = (clienteData: any) => {
+    console.log("clienteData: ", clienteData);
     const cliente: SingleCliente = {
         Linea: clienteData.Linea,
         consumo_residencial: clienteData.consumo_residencial,
@@ -27,3 +28,19 @@ export const transformCliente = (clienteData:any) => {
     }
     return cliente;
 }
+
+//Transform a list of JSON tramo responses into a list of SingleTramo objects
+export const transformTramos = (completeTramosData: []) => {
+    return completeTramosData.map((tramoData: any) => {
+        return transformTramo(tramoData);
+    });
+}
+
+//Transform a list of JSON cliente responses into a list of SingleCliente objects
+export const transformClientes = (completeClientesData: []) => {
+    return completeClientesData.map((clienteData: any) => {
+        return transformCliente(clienteData);
+    });
+}
+
+
