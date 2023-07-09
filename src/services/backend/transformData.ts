@@ -13,7 +13,6 @@ const transformTramo = (tramoData: any) => {
 
 //Transform a JSON cliente response into a SingleCliente object
 const transformCliente = (clienteData: any) => {
-    console.log("clienteData: ", clienteData);
     const cliente: SingleCliente = {
         Linea: clienteData.Linea,
         consumo_residencial: clienteData.consumo_residencial,

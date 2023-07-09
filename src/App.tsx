@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import Tramos from './components/TryEndpoints/Tramos';
+import Clientes from './components/TryEndpoints/Clientes';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
         <Tramos />
+        <Clientes />
       </header>
     </div>
   );
