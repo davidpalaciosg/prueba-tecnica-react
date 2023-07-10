@@ -10,7 +10,7 @@ interface BarChartClienteProps {
   expenseType: string;
 }
 
-export default function BarChartCliente({ clientes, business, expenseType }: BarChartClienteProps) {
+export default function LineChartCliente({ clientes, business, expenseType }: BarChartClienteProps) {
 
   const title = capitalize(expenseType)+" "+capitalize(business);
 

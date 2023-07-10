@@ -89,7 +89,7 @@ export default function Tramos() {
                     {tramos.length > 0 ? (
                         <TableTramo tramos={tramos} handleSortTramos={handleSortTramos} />
                     ) : (
-                        <p></p>
+                        <p>Click en el botón</p>
                     )}
                 </Col>
             </Row>

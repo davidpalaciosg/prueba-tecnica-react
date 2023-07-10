@@ -105,7 +105,7 @@ export default function Clientes() {
                     {clientes.length > 0 ? (
                         <TableClientes clientes={clientes} handleSortClientes={handleSortClientes} business={selectedBusiness}/>
                         ) : (
-                        <p></p>
+                        <p>Click en el botón</p>
                     )}
                 </Col>
             </Row>
