@@ -44,10 +44,16 @@ export default function Clientes() {
         setshowAlert(false);
         setAlertMessage('');
 
-        const clientesResponses = await getCliente(initialDate, finalDate);
-        const clientesConverted = transformClientes(clientesResponses);
-        setClientes(clientesConverted);
-        console.log(clientesConverted);
+        // Get data from API
+        try{
+            const clientesResponses = await getCliente(initialDate, finalDate);
+            const clientesConverted = transformClientes(clientesResponses);
+            setClientes(clientesConverted);
+        }catch(error){
+            setshowAlert(true);
+            setAlertMessage('Error al obtener los datos: '+error);
+        }
+
     };
 
     // Sort clientes from table child

@@ -37,9 +37,15 @@ export default function Tramos() {
         setshowAlert(false);
         setAlertMessage('');
 
-        const tramosResponses = await getTramo(initialDate, finalDate);
-        const tramosConverted = transformTramos(tramosResponses);
-        setTramos(tramosConverted);
+        // Get data from API
+        try{
+            const tramosResponses = await getTramo(initialDate, finalDate);
+            const tramosConverted = transformTramos(tramosResponses);
+            setTramos(tramosConverted);
+        }catch(error){
+            setshowAlert(true);
+            setAlertMessage('Error al obtener los datos: '+error);
+        }
     };
 
     // Sort tramos from table child

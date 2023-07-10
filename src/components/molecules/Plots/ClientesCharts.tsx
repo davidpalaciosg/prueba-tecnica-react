@@ -1,5 +1,5 @@
 import React from 'react';
-import { SingleCliente, SingleTramo } from '../../../services/backend/backendTypes';
+import { SingleCliente, } from '../../../services/backend/backendTypes';
 import { Container, Row, Col } from 'react-bootstrap';
 import LineChartCliente from '../../atoms/Clientes/LineChartCliente';
 

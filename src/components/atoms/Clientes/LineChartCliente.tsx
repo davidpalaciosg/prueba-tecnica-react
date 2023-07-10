@@ -1,7 +1,7 @@
 import React from 'react';
 import { SingleCliente } from '../../../services/backend/backendTypes';
 import 'chart.js/auto';
-import { Bar, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { capitalize } from '../../../utils/String';
 
 interface BarChartClienteProps {
