@@ -1,28 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import Tramos from './components/TryEndpoints/Tramos';
+import Tramos from './components/organisms/Tramos';
 import Clientes from './components/TryEndpoints/Clientes';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Tramos />
-        <Clientes />
-      </header>
+      <Tramos />
     </div>
   );
 }

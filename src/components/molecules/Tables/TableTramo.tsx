@@ -9,21 +9,26 @@ import './Tables.scss';
 
 export default function TableTramo({
   tramos: parentTramos,
-  setTramos: setParentTramos,
+  handleSortTramos,
 }: {
   tramos: SingleTramo[];
-  setTramos: React.Dispatch<React.SetStateAction<SingleTramo[]>>;
+  handleSortTramos: (sortedTramos: SingleTramo[]) => void;
 }) {
 
   const [sortColumn, setSortColumn] = useState<keyof SingleTramo>('Linea');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
-  //Each time the sortColumn or sortDirection state changes, sort the tramos
   useEffect(() => {
-    setParentTramos(sortedTramos);
-    console.log('Tramos sorted: ', parentTramos);
-
-  }, [sortColumn, sortDirection]);
+    // Sort the tramos according to the sortColumn and sortDirection state
+    const sortedTramos = parentTramos.slice().sort((a, b) => {
+      const aValue = a[sortColumn] as string | number;
+      const bValue = b[sortColumn] as string | number;
+      if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+    handleSortTramos(sortedTramos); // Pass the sorted tramos to the parent component
+  }, [sortColumn, sortDirection, parentTramos, handleSortTramos]);
 
   const handleSort = (column: keyof SingleTramo) => {
     if (sortColumn === column) {
@@ -33,15 +38,6 @@ export default function TableTramo({
       setSortDirection('asc');
     }
   };
-
-  // Sort the tramos according to the sortColumn and sortDirection state
-  const sortedTramos = parentTramos.sort((a, b) => {
-    const aValue = a[sortColumn] as string | number;
-    const bValue = b[sortColumn] as string | number;
-    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
-    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
-    return 0;
-  });
 
   const getSortIcon = (column: keyof SingleTramo) => {
     if (sortColumn === column) {
@@ -73,7 +69,7 @@ export default function TableTramo({
         </tr>
       </thead>
       <tbody>
-        {sortedTramos.map((tramo, index) => (
+        {parentTramos.map((tramo, index) => (
           <RowTableTramo key={index} tramo={tramo} />
         ))}
       </tbody>
