@@ -9,7 +9,7 @@ interface AlertProps {
 
 export default function AlertAtom({variant, message, show}: AlertProps) {
   return (
-    <Alert variant={variant} show={show}>
+    <Alert variant={variant} show={show} className='alertAtom'>
         {message}
     </Alert>
   )

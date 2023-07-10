@@ -18,8 +18,8 @@ export default function Datepicker({ name, onChange }: DatepickerProps) {
   };
 
   return (
-    <Form.Group>
-      <Form.Label>{name}</Form.Label>
+    <Form.Group className='datepicker'>
+      <Form.Label className='label'>{name}</Form.Label>
       <Form.Control
         type="date"
         placeholder={name}
