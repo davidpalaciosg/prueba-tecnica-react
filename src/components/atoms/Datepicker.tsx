@@ -1,4 +1,4 @@
-import React, { useRef, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { Form } from 'react-bootstrap';
 
 interface DatepickerProps {
@@ -7,15 +7,27 @@ interface DatepickerProps {
 }
 
 export default function Datepicker({ name, onChange }: DatepickerProps) {
+
+  let initialDate= name === "Fecha inicial" ? "2010-01-01" : "2010-01-05";
+  
+  const [selectedDate, setSelectedDate] = useState(initialDate);
+
+  const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedDate(event.target.value);
+    onChange(event); // Call the onChange prop to notify the parent component
+  };
+
   return (
     <Form.Group>
       <Form.Label>{name}</Form.Label>
       <Form.Control
         type="date"
-        placeholder="Fecha Inicial"
+        placeholder={name}
         name={name}
-        onChange={onChange}
+        onChange={handleDateChange}
+        value={selectedDate}
       />
     </Form.Group>
   );
 }
+
