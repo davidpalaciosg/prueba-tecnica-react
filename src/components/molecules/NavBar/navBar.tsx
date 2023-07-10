@@ -3,8 +3,7 @@ import { Container } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-const NavBar = ({
-}) => {
+const NavBar = () => {
  
     return (
         <Navbar bg="dark" data-bs-theme="dark">
