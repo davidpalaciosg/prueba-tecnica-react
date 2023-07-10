@@ -2,21 +2,37 @@ import React, { useState, ChangeEvent, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { getTramo } from '../../services/backend/backendServices';
 import { transformTramos } from '../../services/backend/transformData';
+import { SingleTramo } from '../../services/backend/backendTypes'
 import Datepicker from '../atoms/Datepicker';
 import { formatDate } from '../../utils/Dates';
+import TableTramo from '../molecules/TableTramo';
 
 export default function Tramos() {
 
     const [fechaInicial, setFechaInicial] = useState("2010-01-01");
     const [fechaFinal, setFechaFinal] = useState("2010-01-05");
 
+    //API Data
+    const [tramos, setTramos] = useState<SingleTramo[]> ([]);
+
+
+    const handleClick = async () => {
+        //Call the API
+        const tramosResponses = await getTramo(fechaInicial, fechaFinal);
+        //Transform the data into SingleTramo[]
+        const tramosConverted = transformTramos(tramosResponses);
+        setTramos(tramosConverted);
+    };
+    
     useEffect(() => {
         printDates();
-    }, [fechaInicial, fechaFinal]);
+    }, [fechaInicial, fechaFinal, tramos]);
+
 
     const printDates = () => {
         console.log('Fecha inicial: ', fechaInicial);
         console.log('Fecha final: ', fechaFinal);
+        console.log('Tramos: ', tramos);
     };
 
     const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -28,14 +44,6 @@ export default function Tramos() {
             setFechaFinal(event.target.value);
         }
     };
-
-    const handleClick = async () => {
-        const tramosResponses = await getTramo(fechaInicial, fechaFinal);
-        const tramos = transformTramos(tramosResponses);
-        console.log(tramos);
-    };
-
-
     return (
         <Container>
             <Row>
@@ -52,6 +60,11 @@ export default function Tramos() {
                 </Col>
                 <Col>
                     <Datepicker name="Fecha final" onChange={handleDateChange} />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                {tramos.length > 0 ? <TableTramo tramos={tramos} /> : (<p>No hay datos</p>)}
                 </Col>
             </Row>
         </Container>

@@ -1,4 +1,4 @@
-import { SingleTramo, SingleCliente } from "./backendResponses";
+import { SingleTramo, SingleCliente } from "./backendTypes";
 
 //Transform a JSON tramo response into a SingleTramo object
 const transformTramo = (tramoData: any) => {
