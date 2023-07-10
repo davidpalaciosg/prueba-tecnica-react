@@ -5,7 +5,7 @@ import { transformTramos } from '../../services/backend/transformData';
 import { SingleTramo } from '../../services/backend/backendTypes'
 import Datepicker from '../atoms/Datepicker';
 import { formatDate } from '../../utils/Dates';
-import TableTramo from '../molecules/TableTramo';
+import TableTramo from '../molecules/Tables/TableTramo';
 
 export default function Tramos() {
 
@@ -14,7 +14,6 @@ export default function Tramos() {
 
     //API Data
     const [tramos, setTramos] = useState<SingleTramo[]> ([]);
-
 
     const handleClick = async () => {
         //Call the API
@@ -64,7 +63,7 @@ export default function Tramos() {
             </Row>
             <Row>
                 <Col>
-                {tramos.length > 0 ? <TableTramo tramos={tramos} /> : (<p>No hay datos</p>)}
+                {tramos.length > 0 ? <TableTramo tramos={tramos} setTramos={setTramos} /> : (<p>No hay datos</p>)}
                 </Col>
             </Row>
         </Container>
