@@ -89,7 +89,7 @@ export default function Tramos() {
                     {tramos.length > 0 ? (
                         <TableTramo tramos={tramos} handleSortTramos={handleSortTramos} />
                     ) : (
-                        <p>Click en el botón</p>
+                        <AlertAtom variant="info" message="No hay datos para mostrar" show={true}/>
                     )}
                 </Col>
             </Row>

@@ -105,7 +105,7 @@ export default function Clientes() {
                     {clientes.length > 0 ? (
                         <TableClientes clientes={clientes} handleSortClientes={handleSortClientes} business={selectedBusiness}/>
                         ) : (
-                        <p>Click en el botón</p>
+                        <AlertAtom variant="info" message="No hay datos para mostrar" show={true}/>
                     )}
                 </Col>
             </Row>
