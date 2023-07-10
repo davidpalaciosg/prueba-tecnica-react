@@ -1,5 +1,5 @@
 import React from 'react';
-import { SingleTramo } from '../../services/backend/backendTypes';
+import { SingleTramo } from '../../../services/backend/backendTypes';
 import 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 

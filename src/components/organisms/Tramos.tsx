@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { SingleTramo } from '../../services/backend/backendTypes';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { getTramo } from '../../services/backend/backendServices';
@@ -21,6 +21,7 @@ export default function Tramos() {
     // API Data
     const [tramos, setTramos] = useState<SingleTramo[]>([]);
 
+    // Get data from API
     const handleButtonClick = async () => {
 
         //Check if the initial date is before the final date
@@ -38,10 +39,12 @@ export default function Tramos() {
         setTramos(tramosConverted);
     };
 
+    // Sort tramos from table child
     const handleSortTramos = (sortedTramos: SingleTramo[]) => {
         setTramos(sortedTramos);
     };
 
+    // Update initial and final date when change
     const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.name === 'Fecha inicial') {
             setInitialDate(event.target.value);
@@ -56,6 +59,7 @@ export default function Tramos() {
             <Row>
                 <Col>
                     <h1>Tramos</h1>
+                    <h5>POST: tramos/</h5>
                     <Button variant="primary" onClick={handleButtonClick}>
                         Obtener info tramos
                     </Button>

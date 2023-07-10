@@ -1,7 +1,7 @@
 import React from 'react';
 import { SingleTramo } from '../../../services/backend/backendTypes';
 import { Container, Row, Col } from 'react-bootstrap';
-import BarChartTramo from '../../atoms/BarChartTramo';
+import BarChartTramo from '../../atoms/Tramos/BarChartTramo';
 
 export default function TramosCharts({ tramos }: { tramos: SingleTramo[] }) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SingleTramo } from '../../../services/backend/backendTypes';
 import { Table } from 'react-bootstrap';
-import RowTableTramo from '../../atoms/RowTableTramo';
+import RowTableTramo from '../../atoms/Tramos/RowTableTramo';
 import { ArrowUpCircle, ArrowDownCircle } from 'react-bootstrap-icons';
 
 //SASS
