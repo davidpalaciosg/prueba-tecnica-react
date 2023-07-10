@@ -2,9 +2,13 @@
 
 Creado por: David Enrique Palacios García
 
+- LinkedIn: [David Palacios](https://www.linkedin.com/in/david-palaciosg/)
+- GitHub: [David Palacios](https://github.com/davidpalaciosg)
+
 ## Herramientas utilizadas
 - React JS + Typescript
 - React Bootstrap + Icons
+- React Router
 - ChartJS (React)
 - Axios: peticiones HTTP
 - Sass: estilos

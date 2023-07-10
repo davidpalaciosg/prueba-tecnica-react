@@ -26,6 +26,7 @@ export default function Presentation() {
                     <ul>
                         <li>React JS + Typescript</li>
                         <li>React Bootstrap + Icons</li>
+                        <li>React Router</li>
                         <li>ChartJS (React)</li>
                         <li>Axios: peticiones HTTP </li>
                         <li> Sass: estilos</li>
