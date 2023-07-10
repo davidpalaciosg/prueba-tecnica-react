@@ -27,3 +27,5 @@ export type SingleCliente = {
 export type ClienteResponse = {
     data: SingleCliente[];
 }
+
+export const businessTypes = ['residencial', 'comercial', 'industrial'];
