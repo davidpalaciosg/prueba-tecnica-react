@@ -11,6 +11,7 @@ import { businessTypes } from '../../../services/backend/backendTypes';
 //SASS
 import './Clientes.scss';
 import SelectAtom from '../../atoms/SelectAtom';
+import TableClientes from '../../molecules/Tables/TableCliente';
 
 export default function Clientes() {
     
@@ -19,7 +20,7 @@ export default function Clientes() {
     const [finalDate, setFinalDate] = useState('2010-01-05');
 
     //Business select
-    const [selectedBusiness, setSelectedBusiness] = useState('industrial');
+    const [selectedBusiness, setSelectedBusiness] = useState('residencial');
 
     // Alert message
     const [showAlert, setshowAlert] = useState(false);
@@ -48,7 +49,7 @@ export default function Clientes() {
         console.log(clientesConverted);
     };
 
-    // Sort tramos from table child
+    // Sort clientes from table child
     const handleSortClientes = (sortedClientes: SingleCliente[]) => {
         setClientes(sortedClientes);
     };
@@ -101,9 +102,8 @@ export default function Clientes() {
             <Row>
                 <Col>
                     {clientes.length > 0 ? (
-                        // <TableTramo tramos={clientes} handleSortTramos={handleSortTramos} />
-                        <p>Clientes</p>
-                    ) : (
+                        <TableClientes clientes={clientes} handleSortClientes={handleSortClientes} business={selectedBusiness}/>
+                        ) : (
                         <p></p>
                     )}
                 </Col>
