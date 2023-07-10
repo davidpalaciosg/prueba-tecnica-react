@@ -22,6 +22,7 @@ export type SingleCliente = {
     costo_residencial: number;
     costo_comercial: number;
     costo_industrial: number;
+    [key: string]: string | number; // Index signature to allow arbitrary string indexing
 }
 
 export type ClienteResponse = {
@@ -29,3 +30,4 @@ export type ClienteResponse = {
 }
 
 export const businessTypes = ['residencial', 'comercial', 'industrial'];
+export const expensesTypes = ['consumo', 'costo', 'perdidas'];

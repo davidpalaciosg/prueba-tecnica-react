@@ -1,17 +1,18 @@
 import React, { useState, ChangeEvent } from 'react';
-import { SingleCliente, SingleTramo } from '../../../services/backend/backendTypes';
+import { SingleCliente, } from '../../../services/backend/backendTypes';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { getCliente, getTramo } from '../../../services/backend/backendServices';
-import { transformClientes, transformTramos } from '../../../services/backend/transformData';
+import { getCliente, } from '../../../services/backend/backendServices';
+import { transformClientes,  } from '../../../services/backend/transformData';
 import Datepicker from '../../atoms/Datepicker';
 import AlertAtom from '../../atoms/AlertAtom';
 import { isBeforeString } from '../../../utils/Dates';
-import { businessTypes } from '../../../services/backend/backendTypes';
+import { businessTypes, expensesTypes } from '../../../services/backend/backendTypes';
 
 //SASS
 import './Clientes.scss';
 import SelectAtom from '../../atoms/SelectAtom';
 import TableClientes from '../../molecules/Tables/TableCliente';
+import ClientesCharts from '../../molecules/Plots/ClientesCharts';
 
 export default function Clientes() {
     
@@ -98,7 +99,7 @@ export default function Clientes() {
                     <SelectAtom label='Tipo de negocio' options={businessTypes} onChange={handleBusinessChange} name='Tipo de negocio' />
                 </Col>
             </Row>
-            {/* Tramos table */}
+            {/* Clientes table */}
             <Row>
                 <Col>
                     {clientes.length > 0 ? (
@@ -108,12 +109,12 @@ export default function Clientes() {
                     )}
                 </Col>
             </Row>
-            {/* Tramos Charts */}
+            {/* Clientes Charts */}
             <Row>
                 <Col>
                     {clientes.length > 0 ? (
                         // <TramosCharts tramos={clientes} />
-                        <p>Clientes charts</p>
+                        <ClientesCharts business={selectedBusiness} clientes={clientes} expenseType={expensesTypes}/>
                     ) : (
                         <p></p>
                     )}

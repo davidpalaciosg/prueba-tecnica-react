@@ -6,6 +6,7 @@ import Clientes from './components/organisms/Clientes/Clientes';
 function App() {
   return (
     <div className="App">
+      <Tramos />
       <Clientes />
     </div>
   );

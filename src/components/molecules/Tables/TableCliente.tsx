@@ -50,6 +50,10 @@ export default function TableClientes({clientes, handleSortClientes, business}: 
     return null;
   };
 
+  const getClientKey = (expenseType:string) => {
+    return `${expenseType}_${business}`;
+  };
+
   return (
     <Table striped bordered hover responsive>
       <thead>
@@ -57,14 +61,14 @@ export default function TableClientes({clientes, handleSortClientes, business}: 
           <th onClick={() => handleSort('Linea')}>
             Linea {getSortIcon('Linea')}
           </th>
-          <th onClick={() => handleSort('consumo_comercial')}>
-            Consumo {getSortIcon('consumo_comercial')}
+          <th onClick={() => handleSort(getClientKey('consumo'))}>
+            Consumo {getSortIcon(getClientKey('consumo'))}
           </th>
-          <th onClick={() => handleSort('costo_comercial')}>
-            Costo {getSortIcon('costo_comercial')}
+          <th onClick={() => handleSort(getClientKey('costo'))}>
+            Costo {getSortIcon(getClientKey('costo'))}
           </th>
-          <th onClick={() => handleSort('perdidas_comercial')}>
-            Pérdidas {getSortIcon('perdidas_comercial')}
+          <th onClick={() => handleSort(getClientKey('perdidas'))}>
+            Pérdidas {getSortIcon(getClientKey('perdidas'))}
           </th>
         </tr>
       </thead>
